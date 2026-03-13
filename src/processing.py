@@ -1,19 +1,22 @@
-def filter_by_state(list_of_state, state = 'EXECUTED'):
+def filter_by_state(list_of_state: list[dict],
+                    state: str = 'EXECUTED') -> list[dict]:
     """
     Отфильтровывает список 'list_of_state' по ключю 'state'.
     По умолчанию state = 'EXECUTED'. Выводит отфильтрованый список.
     """
     list_of_return = []
     for state_dictionary in list_of_state:
-        if state_dictionary['state'] ==  state:
+        if state_dictionary['state'] == state:
             list_of_return.append(state_dictionary)
     return list_of_return
 
 
-def sort_by_date (list_on_sort, descending  = True):
+def sort_by_date(list_on_sort: list[dict],
+                 descending: bool = True) -> list[dict]:
     """
-    Сортирует вводимый список. Параметр 'descending' задает
-    порядок сортировки (по возрастанию или убыванию)
+    Сортирует список list_on_sort по дате. Необязательный
+    параметр 'descending' задает порядок сортировки
     """
-    list_on_sort.sort(key = lambda : dictionary['date'], reverse=descending)
+    list_on_sort.sort(key=lambda dictionary: dictionary['date'],
+                      reverse=descending)
     return list_on_sort
